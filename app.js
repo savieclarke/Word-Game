@@ -40,8 +40,16 @@ $("#score-display").text(score);
 function populateQuestions() {
     questions.forEach(question => {
         const questionBox = $(".questions").append('<div class="question-box"></div>')
-        //questions.quiz.forEach(tip => {
-           //const tipText = $(".question-box").append(questions.quiz);
+
+        const logoDisplay = document.createElement('h1')
+        logoDisplay.textcontent = "*"
+        questionBox.append(logoDisplay)
+        
+        question.quiz.forEach(tip => {
+           const tipText = document.createElement("p")
+           tipText.textContent = tip
+           questionBox.append(tipText)
+        })
             //tipText.TextContent = tip
 
            // $.each(questions.quiz, function(index, value){
