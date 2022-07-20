@@ -44,16 +44,26 @@ function populateQuestions() {
         const logoDisplay = document.createElement('h1')
         logoDisplay.textcontent = "*"
         questionBox.append(logoDisplay)
-        
+
         question.quiz.forEach(tip => {
            const tipText = document.createElement("p")
            tipText.textContent = tip
            questionBox.append(tipText)
         })
-            //tipText.TextContent = tip
 
-           // $.each(questions.quiz, function(index, value){
-              //  $(".question-box").append(value)
+
+       const questionButtons = document.createElement('div')
+       questionButtons.classList.add('question-buttons')
+       questionBox.append(questionButtons)
+       question.options.forEach(option => {
+          const questionButton = document.createElement('button')
+          questionButton.classList.add('question-button')
+          questionButton.textContent = option
+
+          questionButtons.append(questionButton)
+       })
+           
+
                     
 
 
