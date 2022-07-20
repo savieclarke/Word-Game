@@ -34,6 +34,7 @@ const questions = [
 ]
 
 let score = 0;
+let clicked = []
 
 $("#score-display").text(score);
 
@@ -64,9 +65,11 @@ function populateQuestions() {
           questionButton.classList.add('question-button')
           questionButton.textContent = option
 
-          questionButton.addEventListener('click', () => checkAnswer(option, optionIndex + 1, question.correct))
+          questionButton.addEventListener('click', () => checkAnswer(questionButton, option, optionIndex + 1, question.correct))
 
           questionButtons.append(questionButton)
+
+          const answerDisplay = $(".classList").append('<div class="answer-display"></div>')
        })
            
 
@@ -82,12 +85,20 @@ function populateQuestions() {
 
 populateQuestions()
 
-function checkAnswer(option, optionIndex, correctAnswer) {
+/* adding and takig away points based on the chosen answert*/
+function checkAnswer(questionButton, option, optionIndex, correctAnswer) {
     console.log('option', option)
     console.log('optionIndex', optionIndex)
 
     if (optionIndex === correctAnswer) {
         score ++
-        scoreDisplay.textContent = score
+        $("#score-display").text(score)
+
+    } else {
+        score --
+        $("#score-display").text(score)
+
     }
+    clicked.push(option)
+    questionButton.disabled = clicked.includes(option)
 }
