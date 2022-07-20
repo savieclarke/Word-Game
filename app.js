@@ -38,12 +38,14 @@ let score = 0;
 $("#score-display").text(score);
 
 function populateQuestions() {
+
+    /* looping through questions*/
     questions.forEach(question => {
         const questionBox = $(".questions").append('<div class="question-box"></div>')
 
-        const logoDisplay = document.createElement('h1')
+        /*const logoDisplay = document.createElement('h1')
         logoDisplay.textcontent = "*"
-        questionBox.append(logoDisplay)
+        questionBox.append(logoDisplay)*/
 
         question.quiz.forEach(tip => {
            const tipText = document.createElement("p")
@@ -51,14 +53,18 @@ function populateQuestions() {
            questionBox.append(tipText)
         })
 
-
+/* creating question buttons*/
        const questionButtons = document.createElement('div')
        questionButtons.classList.add('question-buttons')
        questionBox.append(questionButtons)
-       question.options.forEach(option => {
+
+       /*displaying options on buttons*/
+       question.options.forEach((option, optionIndex) => {
           const questionButton = document.createElement('button')
           questionButton.classList.add('question-button')
           questionButton.textContent = option
+
+          questionButton.addEventListener('click', () => checkAnswer(option, optionIndex + 1, question.correct))
 
           questionButtons.append(questionButton)
        })
@@ -75,3 +81,13 @@ function populateQuestions() {
 }
 
 populateQuestions()
+
+function checkAnswer(option, optionIndex, correctAnswer) {
+    console.log('option', option)
+    console.log('optionIndex', optionIndex)
+
+    if (optionIndex === correctAnswer) {
+        score ++
+        scoreDisplay.textContent = score
+    }
+}
