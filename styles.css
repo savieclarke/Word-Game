@@ -6,14 +6,14 @@
     padding: 100px;
 }
 
-.questions {
+#question {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
 }
 
-.question-box {
-    background-color: rgb(red, green, blue);
+p {
+    background-color: black;
     margin: 15px;
     color: orange;
     border-radius: 10px;
@@ -26,9 +26,12 @@
 }
 
 
-.question-buttons {
+question-buttons {
     display: flex;
     flex-direction: row;
+    align-items: center;
+    border-radius: 30px;
+
 }
 
 .question-button {
@@ -37,10 +40,29 @@
     border-radius: 20 px;
     border: none;
     background-color: rgb(red, green, blue);
-    color:rgb(red, green, blue)
+    color:rgb(red, green, blue);
+    align-items: center;
 }
 
-.question-button:disabled {
-    background-color: rgb(red, green, blue);
-    color: rgb(red, green, blue);
+button:disabled {
+    background-color: darkgray;
+    color: rgb(136, 134, 134);
+  }
+
+.answer-display {
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: salmon;
+    align-items: center;
+
 }
+
+.answer-display.correct {
+    color: rgb(211, 211, 117);
+  }
+  
+  .answer-display.wrong {
+    color: rgb(211, 134, 117);
+  }

@@ -44,9 +44,9 @@ function populateQuestions() {
     questions.forEach(question => {
         const questionBox = $(".questions").append('<div class="question-box"></div>')
 
-        /*const logoDisplay = document.createElement('h1')
-        logoDisplay.textcontent = "*"
-        questionBox.append(logoDisplay)*/
+        const logoDisplay = document.createElement('h1')
+        logoDisplay.textContent = '✒'
+        questionBox.append(logoDisplay)
 
         question.quiz.forEach(tip => {
            const tipText = document.createElement("p")
@@ -65,15 +65,19 @@ function populateQuestions() {
           questionButton.classList.add('question-button')
           questionButton.textContent = option
 
-          questionButton.addEventListener('click', () => checkAnswer(questionButton, option, optionIndex + 1, question.correct))
+          questionButton.addEventListener('click', () => checkAnswer(questionBox, questionButton, option, optionIndex + 1, question.correct))
 
           questionButtons.append(questionButton)
 
           const answerDisplay = $(".classList").append('<div class="answer-display"></div>')
+
+          questionBox.append(answerDisplay)
+
+          questionDisplay.append(questionBox)
        })
            
 
-                    
+       
 
 
             })
@@ -85,20 +89,32 @@ function populateQuestions() {
 
 populateQuestions()
 
-/* adding and takig away points based on the chosen answert*/
-function checkAnswer(questionButton, option, optionIndex, correctAnswer) {
-    console.log('option', option)
-    console.log('optionIndex', optionIndex)
+/* adding and taking away points based on the chosen answert*/
+function checkAnswer(questionBox, questionButton, option, optionIndex, correctAnswer) {
+
 
     if (optionIndex === correctAnswer) {
         score ++
         $("#score-display").text(score)
+       // addResult(questionBox, "Correct!")
 
     } else {
         score --
         $("#score-display").text(score)
+        //addResult(questionBox, "Wrong Answer!")
 
     }
     clicked.push(option)
     questionButton.disabled = clicked.includes(option)
 }
+
+
+
+
+function addResult(questionBox, answer, className) {
+    const answerDisplay = questionBox.querySelector('.answer-display')
+    answerDisplay.classList.remove('wrong')
+    answerDisplay.classList.remove('correct')
+    answerDisplay.classList.add(className)
+    answerDisplay.textContent = answer
+  }
