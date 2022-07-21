@@ -3,31 +3,31 @@ const questionDisplay = $("#question-display");
 
 const questions = [
     {
-        quiz: ['value', 'estimate', 'evaluate'],
-        options: ['jury', 'assess'],
+        quiz: ['car', 'truck', 'van'],
+        options: ['poodle', 'bus'],
         correct: 2
     },
     {
-        quiz: ['close', 'near', 'next'],
-        options: ['trace', 'adjacent'],
+        quiz: ['song', 'music', 'notes'],
+        options: ['foot', 'guitar'],
         correct: 2
     },
 
     {
-        quiz: ['assume', 'insight', 'weather'],
-        options: ['forecast', 'sustainable'],
+        quiz: ['nails', 'hair', 'makeup'],
+        options: ['perfume', 'wood'],
         correct: 1
     },
 
     {
-        quiz: ['fast', 'quick', 'prompt'],
-        options: ['charity', 'rapid'],
+        quiz: ['basketball', 'football', 'soccer'],
+        options: ['watch', 'baseball'],
         correct: 2
     },
 
     {
-        quiz: ['foreign', 'national', 'ethnic'],
-        options: ['mad', 'exotic'],
+        quiz: ['black', 'white', 'red'],
+        options: ['scene', 'blue'],
         correct: 2
     },
 
